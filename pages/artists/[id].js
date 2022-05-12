@@ -1,9 +1,11 @@
 import Col from '../../components/Col'
+import Container from '../../components/Container'
 import Heading from '../../components/Heading'
 import Layout from '../../components/Layout'
 import Link from 'next/link'
 import Paragraph from '../../components/Paragraph'
 import Row from '../../components/Row'
+import Section from '../../components/Section'
 import Image from 'next/image'
 
 import { getAllArtistSlugs, getSingleArtistData } from '../../lib/api'
@@ -30,19 +32,28 @@ export async function getStaticProps({ params }) {
 //3.use the data
 const SingleArtistPage = ({ artistData }) => {
     console.log({artistData});
-    const { title, featuredImage, artistInformation } = artistData;
+    const { title, content, featuredImage, artistInformation } = artistData;
     const { sourceUrl, altText, mediaDetails } = featuredImage.node;
     const { artistsToAlbums } = artistInformation
     return <Layout>
-        <Image 
-            src={sourceUrl}
-            alt={altText}
-            width={mediaDetails.width}
-            height={mediaDetails.height}
-        />
-        <Heading level="1">{title}</Heading>
+        <Container>
+            <Row>
+                <Col xs="12" md="3">
+                    <Image 
+                        src={sourceUrl}
+                        alt={altText}
+                        width={mediaDetails.width}
+                        height={mediaDetails.height}
+                    />
+                </Col>
+                <Col xs="12" md="3" justifyContent="center">
+                    <Heading level="1">{title}</Heading>
+                    
+                </Col>
+            </Row>
+
         {artistsToAlbums &&
-        <section>
+        <Section>
             <Heading level="2">Albums</Heading>
             <Row>
             {artistsToAlbums.map((album) => {
@@ -63,7 +74,7 @@ const SingleArtistPage = ({ artistData }) => {
                 </Col>
             })}
             </Row>
-        </section>
+        </Section>
         }
         <Paragraph>
             <Link href="/artists">
@@ -72,6 +83,7 @@ const SingleArtistPage = ({ artistData }) => {
                 </a>
             </Link>
         </Paragraph>
+        </Container>
     </Layout>
 }
 export default SingleArtistPage;

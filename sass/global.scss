@@ -21,17 +21,17 @@ html {
 }
 
 body {
-    background-color: vars.$SUorange;
-    color: vars.$SUblue;
+    background-color: vars.$color_light_gray;
+    color: black;
     font-family: vars.$font_primary;
     min-height: 100%;
     @include mixins.breakpoint(tablet) {
-        background-color: yellow;
+        //background-color: yellow;
     }
     @include mixins.breakpoint(laptop) {
-        background-color: aqua;
+        //background-color: aqua;
     }
     @include mixins.breakpoint(desktop) {
-        background-color: red;
+        //background-color: red;
     }
 }

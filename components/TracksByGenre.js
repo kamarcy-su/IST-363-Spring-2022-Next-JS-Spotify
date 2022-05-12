@@ -7,12 +7,9 @@ import {
 	getTracks, getGenres, filterTracksByGenre
 } from '../lib/api'
 
-const TracksByGenre = () => {
-	// const [stateVariable, setStateFunction] = useState(initVlaue);
-	const tracks = getTracks();
+const TracksByGenre = ({ items }) => {
+	const [activeGenre, setActiveGenre] = useState("Rock");
 	const genres = getGenres();
-	
-    const [activeGenre, setActiveGenre] = useState("Rock");
 
     return <div>
         <h2>Tracks by Genre</h2>
@@ -20,7 +17,7 @@ const TracksByGenre = () => {
             items={genres} 
             activeItem={activeGenre} 
             clickHandler={setActiveGenre} />
-        <Tracks items={filterTracksByGenre(tracks, activeGenre)}/>
+        <Tracks items={filterTracksByGenre(items, activeGenre)}/>
     </div>
 }
 export default TracksByGenre;
