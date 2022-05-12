@@ -6,7 +6,7 @@ import Paragraph from '../components/Paragraph'
 import Row from '../components/Row'
 import Section from '../components/Section'
 
-import Image from 'next/Image'
+import Image from 'next/image'
 
 const Showcase = () => {
     return <Section>
