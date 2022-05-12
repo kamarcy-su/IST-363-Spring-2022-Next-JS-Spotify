@@ -1,18 +1,8 @@
 import Head from 'next/head'
-import Link from 'next/link'
-import Image from 'next/image'
 
-//custom components
-import Button from '../components/Button'
-import Container from '../components/Container'
-import Col from '../components/Col'
-import Heading from '../components/Heading'
 import Layout from '../components/Layout'
 import NewReleases from '../components/NewReleases'
-import Paragraph from '../components/Paragraph'
-import Row from '../components/Row'
 import Showcase from '../components/Showcase'
-import TracksByGenre from '../components/TracksByGenre'
 
 import { getAlbums } from '../lib/api'
 
